@@ -1,0 +1,58 @@
+git - anandpandey13
+akpandey0497@gmail.com
+Andy@1234567
+Branch = anandpandey13/thoughtShare
+*********************************************************************************
+Before commiting, delete contents of below folder
+E:\vscode\AngularProjects\thoughtShare\.angular\cache\15.1.6\angular-webpack
+E:\vscode\AngularProjects\thoughtShare\.angular\cache\15.1.6\babel-webpack
+
+Now mentioned "node_modles" inside .gitignore folder to skip this from commiting.
+
+*** Note - ignore *** commented lines.
+
+git init
+git status
+git .					###Currently executing this, started on 12pm,5th march
+git commit -m "Initial Commit"
+***Now create repo in github
+***copy its url - https://github.com/anandpandey13/thoughtShare.git
+git remote add origin https://github.com/anandpandey13/thoughtShare.git
+
+***git lfs install
+
+***git lfs track '*.ts'
+***git lfs track '*.json'
+***git lfs track '*.js'
+***git lfs track '*.exe'
+
+***git lfs push --all origin master
+
+git push -u origin master
+
+***If you wish to pull the repository on another device, simply install git-lfs on that device(per local repository).
+
+***Now when you will make modifications to any files or folders, follow the same procedure in step 4 above to commit your changes.
+git status
+git add .
+*** or we can use git add <fileName1> <fileName2> <fileName3>
+git commit -m "changes in the index.html"
+git push origin
+
+****************************************************************
+Now comes the deployment part, run below commands 
+npm install -g @angular/cli@15.1.6		*** If not installed.
+ng add angular-cli-ghpages
+***ng deploy --base-href=/thoughtShare/		this command didn't work for me. So, I used below command.
+ng deploy --base-href=Pages
+
+***It will build and auto publish to github pages for user use.
+Go to - https://anandpandey13.github.io/thoughtShare
+
+Finished !
+
+Bottom Line - I didnot commit node_modules due to large size by putting it in .gitinore file
+I published pages on git page directly through cli, see the previous section for it.
+
+*********************************************************************
+
