@@ -1,0 +1,30 @@
+.field {
+    width: 100%;
+}
+
+.card {
+    width: 80%;
+    margin: auto;
+    /*it will put card on center of the page*/
+    background: #cdcaee;
+    padding: 20px;
+}
+
+.container {
+    margin-top: 10px;
+}
+
+.card h1 {
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card button {
+    margin: 5px;
+}
+table {
+    width: 100%;
+  }

@@ -1,0 +1,173 @@
+<div class="container">
+
+    <div class="card">
+        <form (ngSubmit)="doSubmitForm()">
+
+        <h1>Hi, Please put your creative thoughts here, along with your name & Profession...!</h1>
+        <mat-form-field class="field" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input name="name" [(ngModel)]="data.name" matInput>
+        </mat-form-field>
+        <mat-form-field class="field" appearance="outline">
+            <mat-label>Profession</mat-label>
+            <input name="proff" [(ngModel)]= "data.proff" matInput>
+        </mat-form-field>
+
+        <mat-form-field class="field" appearance="fill">
+            <mat-label>Plz add your Comment here</mat-label>
+            <textarea 
+            rows="4" 
+            matInput placeholder="Hey, Put your creative thoughts here....!"
+            name="comment"
+            [(ngModel)]="data.comment">
+            </textarea>
+        </mat-form-field>
+
+        <div class="text-center">
+            <mat-spinner *ngIf="flag" style="margin: auto;"></mat-spinner>
+            <button [disabled]="flag" type="submit" mat-raised-button color="primary">Send your comment</button>
+            <button [disabled]="flag" type="reset" mat-raised-button color="accent">Reset your data</button>
+        </div>
+    </form>
+
+
+<!-- 
+    {{data | json}}   
+    This line simply displays what use enters in the input field  (in real time)
+    For example - { "name": "anand", "proff": "engg", "comment": "be skill full" } 
+ -->
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+  <div class="card">
+    <div class="text-center">
+      <button (click)="doFetchAllData()" type="submit" mat-raised-button color="primary" >See Other people's Thoughts...!</button>
+  </div>
+
+  <table mat-table [dataSource]="newArray" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Profession Column -->
+    <ng-container matColumnDef="proff">
+      <th mat-header-cell *matHeaderCellDef> Profession </th>
+      <td mat-cell *matCellDef="let element"> {{element.proff}} </td>
+    </ng-container>
+  
+    <!-- Thoughts Column -->
+    <ng-container matColumnDef="comment">
+      <th mat-header-cell *matHeaderCellDef> Thoughts </th>
+      <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ <div class="container">
+
+  <div class="card">
+    <div class="text-center">
+      <button (click)="doFetchAllData()" type="submit" mat-raised-button color="primary" >See Other people's comments...!</button>
+  </div>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Profession</th>
+        <th>Comments</th>
+      </tr>
+      </thead>
+      <tbody>
+
+        //  I had to add below lines in ts file so that {{friend.name}} can provide a value
+        //  otherwise it was not recognzing that 'name' is a field and throwing error.
+        //  However, issue is not with the angular table that we are now using, I used that only, see the upper code for that.
+        //  newArray=[   { "name": "", "proff": "", "comment": "" }    ]
+
+      <tr *ngFor="let friend of newArray">
+        <td><span>{{friend.name}}</span></td>
+        <td><span>{{friend.proff}}</span></td>
+        <td><span>{{friend.comment}}</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> 
+ -->
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let friend of newArray">
+        <td><span>{{friend.name}}</span></td>
+        <td><span>{{friend.proff}}</span></td>
+        <td><span>{{friend.comment}}</span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+  <!-- <ul>
+    <li *ngFor="let element of newArray" [type]="element">
+      {{element.name}}, {{element.proff}}
+    </li>
+  </ul> -->
